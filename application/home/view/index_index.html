@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0"/>
+		<title>{$sys.name}</title>
+		<link rel="stylesheet" href="/static/home/css/common.css" />
+		<link rel="stylesheet" href="/static/home/css/index.css" />
+		<link rel="stylesheet" href="/static/home/css/swiper.min.css" />
+		<link rel="stylesheet" href="/static/home/css/animate.min.css"/>
+		<link rel="stylesheet" href="/static/home/css/indexliu.css" />
+		<link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
+	</head>
+	<body style="overflow: hidden; height: 100%; font-size: 20.85%;">
+	<!--导航-->
+	<div class="box write indexheader">
+		<div class="container header">
+			<div class="nav clearfix">
+				<div class="logo center">
+					<a href="{:url('home/index/index')}">
+					<img src="{$sys.logo}"/>						
+					</a>
+				</div>
+				<a class="icon_menu" id="index_xs"><img src="/static/home/images/caidan.png"></a>
+				<ul class="clearfix daohang" id="pages">
+					<li data-index="0" class="active"><a href="javascript:void(0)" class="active">首页</a></li>
+					<li data-index="1"><a href="javascript:void(0)">服务</a></li>
+					<li data-index="2"><a href="javascript:void(0)">网站</a></li>
+					<li data-index="3"><a href="javascript:void(0)">商城</a></li>
+					<li data-index="4"><a href="javascript:void(0)">微信</a></li>
+					<li data-index="5"><a href="javascript:void(0)">app</a></li>
+					<li data-index="6"><a href="javascript:void(0)">客户</a></li>
+					<li data-index="7"><a href="javascript:void(0)">联系</a></li>
+				</ul>
+				<div class="center hua2 nav-tel">
+					<div class="tell">
+						<span class="red font18">{$sys.tel}</span>
+					</div>
+				</div>
+				<!--<div class="center hua2 hua22 nav-tel nav-tel2">
+					<div class="tell">
+						<span class="red font18">18292466588</span>
+					</div>
+				</div>-->
+			</div>
+		</div>
+	</div>
+	<div id="container">
+		<div class="section active fp-tableCell" id="section0">
+			<div class="home-news">
+					<span>NEWS:</span>
+					<ul>
+						{volist name="news_list" id="vo"}
+							<li data-id = "{$vo.id}" data-name="{$vo.title}"><a>{$vo.title}</a></li>
+						{/volist}
+					</ul>
+			</div>
+			<div class="swiper-container banner ">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide dingwei">
+			        	<img src="/static/home/images/banner1.jpg"/>
+			        	<div class="slide-content slide-content-1">
+							 	<h2><b>响应式开发</b></h2> 
+								<p class="intro">集中创建页面的图片排版大小，智能地根据用户行为以及使用的设备环境（系统平台、屏幕尺寸、屏幕定向等）进行相对应的布局。</p>
+						</div>
+			        </div>
+			        <div class="swiper-slide dingwei">
+			        	<img src="/static/home/images/banner2.jpg"/>
+			        	<div class="slide-content slide-content-2">
+							<h2>完美设计，提升你的形象</h2> 
+							<h3>Design</h3>
+							<p class="intro">您的需求分析+我们的想法+技术实施+业务方案的全方位组合=完美品牌与效益的诞生！</p> 
+						</div>
+			        </div>
+			        <div class="swiper-slide dingwei">
+			        	<img src="/static/home/images/banner3.jpg"/>
+			        	<div class="slide-content slide-content-3">
+							<div class="content-box">
+								<h2>紧跟技术前沿<b>Technology</b></h2> 
+								<p class="intro">紧跟技术前沿，保持创新实力<br>定制研发，为你的客户和团队。</p>
+		 					</div> 
+						</div>
+						<div class="background-box"></div>
+			        </div>
+			        <div class="swiper-slide dingwei">
+			        	<img src="/static/home/images/banner4.jpg"/>
+			        	<div class="slide-content slide-content-4">
+							<h2>不同设备，同样精彩</h2> 
+							<h3>Responsive</h3>
+							<p class="intro">全面布局，响应式布局，智能识别多种终端设备</p> 
+						</div>
+			        </div>
+			    </div>
+			    <div class="swiper-pagination"></div> 
+			</div>
+		</div>
+		<div class="section" id="section1">
+			<div class="fp-tableCell" >
+				<div class="fp-tableCell">
+			<div class="section-content-container">
+				<hgroup>
+					<h2>WHAT CAN WE DO ?</h2>
+					<h3>我们的服务项目</h3>		
+				</hgroup>
+				<ul class="section-content service-list">
+					<li>
+						<div class="top brand">
+							<h3>网站建设</h3>
+							<p>BRAND WEBSITE</p>
+						</div>
+						<div class="intro">
+							<p>企业网站<br>门户网站<br>H5定制网站<br>PC+手机网站</p>
+						</div>
+					</li>
+					<li>
+						<div class="top shop">
+							<h3>商城定制</h3>
+							<p>E-COMMERCIAL</p>
+						</div>
+						<div class="intro">
+						<p>分销商城<br>返利商城<br>单用户商城<br>多商家入住<br>一元夺宝商城</p>
+						</div>
+					</li>
+					
+				    <li>
+						<div class="top weixin">
+							<h3>微信开发</h3>
+							<p>WECHAT APPLICATION</p>
+						</div>
+						<div class="intro">
+						<p>微抽奖/微红包<br>微小程序教育版<br>微小程序微商版<br>微小程序互动版<br>服务号/订阅号开发<br>微信H5/商城/分销<br>微投票/旅游/活动</p>
+						</div>
+					</li>
+					<li>
+						<div class="top app">
+							<h3>APP开发</h3>
+							<p>IOS - WM - ANDROID</p>
+						</div>
+						<div class="intro">
+						<p>商城APP<br>社交APP<br>社区APP<br>餐饮APP<br>资讯APP<br>家政APP<br>众筹APP</p>
+						</div>
+					</li>
+			</ul>
+			</div> 
+		</div>
+</div>
+		</div>
+		<div class="section" id="section2">
+			<div class="fp-tableCell" >
+			<div class="fp-tableCell" >
+					<div class="section-content-container rbslider-item-list-container">
+						<hgroup>
+							<h2>OUR CASES</h2>
+							<h3>网站展示</h3>
+								</hgroup>
+						<div class="section-content rbslider-item-list-wrapper case-list1">
+						<ul class="rbslider-item-list clearfix">
+							{volist name="product_list" id="vo"}
+								<!--<li><a href="{:url('home/index/productdetail',['id'=>$vo['id']] )}">-->
+								<li data-id="{$vo.id}" data-name='{$vo.name}' class="peoductly"><a>
+									<div class="img-box">
+										<div class="img"><img src="{$vo.pic}" alt="{$vo.name}"></div> 
+										<div class="ck"></div>
+										<div class="cover"></div>  
+									</div>
+								</a>
+								</li>
+							{/volist}	
+							<a  class="wider-more" href="{:url('home/index/productlist',['pid'=>'a'] )}">MORE</a>
+					</ul>
+						 
+					</div>
+					<a  class="rbslider-item-list-more" href="{:url('home/index/productlist',['pid'=>'a'] )}">MORE</a>
+				</div> 
+		</div></div>
+		</div>
+		<div class="section" id="section3">
+			<div class="fp-tableCell" ><div class="fp-tableCell">
+			<div class="section-content-container rbslider-item-list-container">
+				<hgroup>
+					<h3>商城定制</h3>
+				</hgroup>
+				<div class="section-content rbslider-item-list-wrapper equipment-list1">
+					<ul class="rbslider-item-list clearfix">
+						<li>
+							<p><img alt="" src="/static/home/images/shihao.png"></p>
+						</li>
+						<li>
+							<p><img alt="" src="/static/home/images/gongwei.png"></p>
+						</li>
+						<li>
+							<p><img alt="" src="/static/home/images/huangjia.png"></p>
+						</li>
+                        <li>
+							<p><img alt="" src="/static/home/images/shihao2.png"></p>
+						</li>
+                        <li>
+							<p><img alt="" src="/static/home/images/gongwei2.png"></p>
+						</li>
+                        <li>
+							<p><img alt="" src="/static/home/images/huangjia2.png"></p>
+						</li>
+					</ul>
+				</div>
+				<div class="navigation equipment">
+					<a class="prev"></a>
+					<a class="next"></a>
+				</div>
+			</div>
+		</div></div>
+		</div>
+		<div class="section" id="section4">
+			<div class="fp-tableCell" ><div class="fp-tableCell">
+			<div class="section-content-container marketing-content">
+				<hgroup>
+					<h3>微信开发</h3>
+				</hgroup>
+				<div class="section-content">
+					<ul class="marketing_list clearfix">
+
+							<li class="app_list">
+							<div class="app_i1">
+								<span><img alt="主页" src="/static/home/images/index.png" class="wx_mg"></span>
+							</div>
+						</li>
+						<li class="app_list">
+							<div class="app_i1">
+								<span><img alt="详情" src="/static/home/images/detail.png" class="wx_mg"></span>
+							</div>
+						</li>
+						<li class="app_list">
+							<div class="app_i1">
+								<span><img alt="活动" src="/static/home/images/activity.png" class="wx_mg"></span>
+							</div>
+						</li>
+						</ul>
+				</div> 
+			</div> 
+		</div></div>
+		</div>
+		<div class="section" id="section5">
+			<div class="fp-tableCell"><div class="fp-tableCell">
+		        <div class="section-content-container marketing-content">
+		        <hgroup>
+					<h3>APP开发</h3>
+				</hgroup>
+				<div class="section-content">
+					<ul class="marketing_list clearfix">
+								<li class="app_list">
+									<div class="app_i1">
+										<img alt="" src="/static/home/images/app1.png">
+									</div>
+								</li>
+								<li class="app_list">
+									<div class="app_i1">
+										<img alt="" src="/static/home/images/app2.png">
+									</div>
+								</li>
+								<li class="app_list">
+									<div class="app_i1">
+										<img alt="" src="/static/home/images/app3.png">
+									</div>
+								</li>
+					</ul>
+			</div>
+			</div>
+		</div></div>
+		</div>
+		<div class="section" id="section6">
+			<div class="fp-tableCell" ><div class="fp-tableCell" >
+				<div class="section-content-container">
+					<hgroup>
+						<h2>OUR PARTNERS</h2>
+						<h3>合作伙伴</h3>
+					</hgroup>
+				<div class="section-content">
+					<ul class="partner-list clearfix">
+						{volist name="partner_list" id="vo"}
+							<li>
+								<div class="con">
+									<div class="img"><img alt="{$vo.title}" src="{$vo.pic}" ></div>
+									<h4>{$vo.title}</h4>
+									<!--<p><a href="http://www.heroyl.com/" target="_blank">http://www.heroyl.com</a></p>-->
+								</div> 
+								<div class="ck"></div>
+							</li>
+						{/volist}
+					</ul>
+				</div>
+			</div>
+		</div></div>
+		</div>
+		<div class="section" id="section7">
+			<div class="fp-tableCell" style="height: 925px;"><div class="fp-tableCell" style="height: 925px;">
+			<div class="home-contact">
+				<ul class="clearfix">
+					<li class="img"><img src="{$sys.kfwx}" align="微信"></li>
+					<li class="center">
+						<h2><a href="" class="联系电话">扫描二维码</a></h2>
+						<p>
+						{$sys.name}<br>联系电话：{$sys.tel}<br>联系QQ：     
+						<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin={$sys.kfqq}&amp;site=qq&amp;menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:{$sys.kfqq}:52" alt="点击这里给我发消息" title="点击这里给我发消息">{$sys.kfqq}</a>&nbsp;&nbsp;<br/>
+					           联系地址：{$sys.ads}<br>电子邮件：{$sys.email}
+					</p>
+					</li>
+					<!--表单-->
+					<li class="biaodan" style="margin: auto;">
+					<form class="layui-form clearfix" style="width:300px;margin: auto;" id="addwechat">
+				        <div class="layui-form-item l1">
+				            <label class="layui-form-label">姓名:</label>
+				            <div class="layui-input-block">
+				                <input type="text" name="name" id="name" placeholder="请输入姓名" id="xm" class="layui-input" autocomplete="off">
+				            </div>
+				        </div>
+				        <div class="layui-form-item l2">
+				            <label class="layui-form-label">电话:</label>
+				            <div class="layui-input-block">
+				                <input type="text" name="tel" id="tel"  placeholder="请输入电话号码" class="layui-input" autocomplete="off">
+				            </div>
+				        </div>
+				        <div class="layui-form-item layui-form-text l3" >
+				        	<label class="layui-form-label" >留言:</label>
+				            <div class="layui-input-block">
+				                <input type="text"  id="ly"  placeholder="请输入留言" class="layui-input" autocomplete="off">
+				            </div>
+				        </div>
+				    </form>
+					<div align="center">
+					<a class="coolbg" style="display: inline-block;cursor: pointer;width:75%; height:34px;line-height:34px; text-align:center; background:#2ED0B4; color:#fff; border:none; padding:0; margin-top:15px;">提交留言</a>
+					&nbsp;
+					</div>
+					</form>
+					</li>
+<!--表单结束-->					
+					<li class="line"></li>
+                    <li class="about_us" style="width:100%; margin-top:20px;"><p style="font-size:1.1em; line-height:2.08em;">&nbsp;&nbsp;{$sys.introduction}</p></li>
+			</ul>
+				<div class="clear"></div> 
+		</div>
+		</div></div>
+		</div>
+	</div>
+	<script src="/static/home/js/jquery-1.11.0.js"></script>
+	<script src="/static/home/js/index.js"></script>
+	<script src="/static/home/js/common.js"></script>
+	<script type="text/javascript" src="/static/home/js/switchPage.js"></script> 
+	<script src="/static/home/js/swiper.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+	<script>
+		var sendyu = "{:url('senmsg')}",openurl='{:url("home/index/detail")}',openurlnew='{:url("home/index/detailnews")}';
+		layui.use(['form', 'layer','upload','layedit'], function () {
+            var form = layui.form, $ = layui.jquery,upload = layui.upload,layedit = layui.layedit;
+		})
+			$(function(){
+			  $("#container").switchPage({
+				'loop' : false,
+				'keyboard' : true,
+				'direction' : 'vertical',
+				'pagelistbox':"pages1"
+			  });
+			});
+		var hei = $(window).height();
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 5000,//可选选项，自动滑动
+			speed:1500,
+			pagination : '.swiper-pagination',
+			loop : true,
+			height: hei,
+		})
+		$(".swiper-pagination").on("click","span",function(){
+	    		var index = $(this).index();
+	    		mySwiper.slideTo(index+1);
+	    })
+		
+		
+		
+	</script>
+	</body>
+</html>

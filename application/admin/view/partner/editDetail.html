@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
+</head>
+<style type="text/css">
+	.admin-nav-card .layui-tab-content{-webkit-overflow-scrolling: touch}
+</style>
+<body class="skin-0" style="overflow-x: hidden;overflow-y: scroll;">
+<script type="text/javascript">
+</script>
+<link rel="stylesheet" href="/static/admin/css/wxedit.css" media="all">
+<link rel="stylesheet" type="text/css" href="/static/ueditor/themes/default/css/ueditor.css" />
+<link rel="stylesheet" type="text/css" href="/static/ueditor/themes/default/css/ueditor.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/ueditor/themes/default/css/ueditor.min1.css" />
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/uedit.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/third-party/zeroclipboard/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<div class="admin-main layui-anim layui-anim-upbit" ng-app="hd" ng-controller="ctrl">
+	<form class="layui-form" id="formlay">
+		<input type="hidden" name="content" id="content1" value="" />
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题:</label>
+            <div class="layui-input-block massangeb1" style="line-height: 36px;">
+               <input type="text" class="layui-input" ng-model="field.title" name="title" placeholder="请输入标题" id="" value="" />
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">类别:</label>
+            <div class="layui-input-block massangeb2">
+                <select name="type_name">
+					<option selected="selected" value="媒体推荐">媒体推荐</option>
+					<option value="成功案例">成功案例</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">作者:</label>
+            <div class="layui-input-block massangeb2">
+                 <input type="text" class="layui-input" ng-model="field.author" name="author" placeholder="请输入作者名称" id=""  value="shiyin" />
+            </div>
+        </div>
+    </form>
+	<div class="boxtitle">
+		<textarea id="editor" type="text/plain" style="width:100%;height:100%;"></textarea>		
+	</div>
+</div>
+<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+<script src="/static/admin/js/common.js"></script>
+<script src="/static/common/js/angular.min.js"></script>
+<script>
+	var m = angular.module('hd',[]),contentyu = '',dataUrl='{:url("addDetail")}';
+    m.controller('ctrl',['$scope',function($scope) {
+        $scope.field = '{$info|raw}'!='null'?{$info|raw}:{type_name:'',id:'',title:'',author:'shiyin',content:''};
+       layui.use(['form','laydate','upload','flow'], function() {
+        var form = layui.form, $ = layui.jquery,laydate = layui.laydate,upload=layui.upload,flow=layui.flow;
+			if($scope.field.type_name){
+	       		$("#formlay").find("select[name=type_name]").val($scope.field.type_name)
+	       		form.render();
+			}
+		})
+       if($scope.field.content != ''){
+       	contentyu = $scope.field.content;
+       }
+       if($scope.field.id && $scope.field.id != ''){
+       		$("#formlay").append('<input type="hidden" name="id" value="'+$scope.field.id+'" />')
+       		dataUrl = '{:url("editDetail")}';
+       }
+       	console.log($scope.field )
+       	
+    
+    }]);
+window.UEDITOR_HOME_URL = "{:url('UpFiles/upload')}";
+	//实例化编辑器
+	var ue = UE.getEditor('editor',{
+		toolbars: [
+					['snapscreen','undo','redo','|','fontfamily','fontsize','bold','italic','forecolor', 'backcolor','|','justifyleft','justifycenter','justifyright','justifyjustify','removeformat','formatmatch'],
+					['anchor','|','strikethrough','blockquote', 'underline','shadowcolor','letterspacing','|','outpadding','indent','rowspacingtop','rowspacingbottom','lineheight','|','insertvideo','insertimage'],
+					['superscript', 'subscript','|','inserttable', 'background','insertorderedlist','insertunorderedlist','|', 'horizontal','fontborder','spechars','|','emotion','scrawl', 'attachment','searchreplace','link','source',]
+				],
+		labelMap:{
+		 'anchor':'批注','snapscreen':'图片阴影','shadowcolor':'文字阴影色','insertvideo':'音乐/视频'
+		},
+		iframeCssUrl: '/static/ueditor/themes/iframe.css',// 引入css	
+		focus:false,
+		initialFrameHeight:$(window).height()-300,
+		wordCount:true,
+		elementPathEnabled:false,
+		autoHeightEnabled:false,
+		UEDITOR_HOME_URL:'/static/ueditor/',
+	});
+	ue.ready(function() {
+        ue.setContent(contentyu);  
+    });  
+	
+function biaodan(){
+	var title = $("#formlay").find("input[name=title]").val();
+	var name = $("#formlay").find("input[name=author]").val();
+	var content = ue.getContent();
+	if($.trim(content)!='' && title != '' && name != ''){
+		$("#content1").val(content)
+		console.log(content)
+		var data = $("#formlay").serialize();
+		$.post(dataUrl,data,function(res){
+			console.log(res)
+			if(res.code = 1){
+				layer.msg(res.msg,{icon:1,time:1800})
+				setTimeout(function(){
+					window.parent.closeeditbox()					
+				},2000)
+			}else{
+				layer.msg(res.msg,{icon:2,time:1800})
+			}
+		})
+	}else{
+		layer.msg("标题，作者，内容均不能为空",{icon:2,time:1800})
+	}
+}
+
+</script>
+</body>
+</html>

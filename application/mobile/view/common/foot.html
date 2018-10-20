@@ -1,0 +1,53 @@
+
+<div class="footer ">
+	<div style="background: #333;" class="footer_item">
+		<img src="/static/mobile/img/shopping.jpg"/>
+		<a class="abtn" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=273575567&site=qq&menu=yes"> 在线咨询</a>
+	</div>
+	<div style="background: #9A0300;" class="footer_item">
+		<img src="/static/mobile/img/message.jpg"/>
+		{if condition="$sys.order eq 'open'"}
+		<a class="abtn" href="#order">立即订购</a>
+		{else/}
+		<a class="abtn" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=273575567&site=qq&menu=yes"> 立即订购</a>
+		{/if}
+	</div>
+</div>
+<!-- Scripts -->
+
+<script src="/static/mobile/js/vendor/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="/static/mobile/js/vendor/mui.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+<script type="text/javascript">
+	layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#firstYe'
+    ,width: '100%' //设置容器宽度
+    ,height:'250px'
+    ,arrow: 'none' //始终显示箭头
+    ,autoplay:true
+    ,interval:2500	
+    ,indicator:'inside'
+  });   
+});
+</script>
+<script type="text/javascript" charset="utf-8">
+//			mui.init({
+//				swipeBack:true //启用右滑关闭功能
+//			});
+//			var slider = mui("#slider");
+//			slider.slider({
+//						interval: 5000
+//					});
+
+ if($("#firstYe1").find(".lunbo").length==1){
+ 	//console.log($("#firstYe1").find(".lunbo").length);
+ }else if($("#firstYe1").find(".lunbo").length==0){
+ 	document.querySelector("#defaultImg").style.display="block";
+ 	document.querySelector("#firstYe1").style.display="none";
+ }
+		</script>
+</body>
+</html>

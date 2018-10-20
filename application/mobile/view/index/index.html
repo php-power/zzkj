@@ -1,0 +1,280 @@
+{include file="common/head"/}
+
+<!-- Main Container -->
+<div class="mui-content1">
+
+	<div id="main" class="main">
+		<div class="mui-content">
+			<div class="left_menu">
+				<!--<div class="left_img">
+					<img src="/static/mobile/img/right_07.jpg"/>-->
+				<!--<a><span class="mui-icon mui-icon-arrowright"></span></a>-->
+				<!--</div>-->
+				<ul class="left_ul">
+					<li>
+						<a  onclick="tiao()">官网首页</a>
+					</li>
+					<li>
+						<a href="#pro">产品介绍</a>
+					</li>
+					<li>
+						<a href="#pro">作用原理</a>
+					</li>
+					<li>
+						<a href="#demo">成功案例</a>
+					</li>
+					<li>
+						<a href="#us">品牌故事</a>
+					</li>
+					<li>
+						<a {if condition="$sys.fwurl neq ''"} href="{$sys.fwurl}" {else/} href="javascript:void(0)"{/if} target="_blank" class="fwurl">防伪查询</a>
+					</li>
+					<li>
+						<a href="#order">在线订购</a>
+					</li>
+				</ul>
+			</div>
+			<div class="menu">
+				<!--<img src="/static/mobile/img/qaq1_04.jpg" />-->
+				<a><span class="mui-icon mui-icon-bars"></span></a>
+			</div>
+
+			<!--<div class="ding head">
+				<img src="img/1_03.jpg" />
+				
+			</div>-->
+			<div class="ding" id="defaultImg" style="display: none;" >
+				<img src="/static/mobile/img/1_02.jpg" />
+			</div>
+			<div class="tu" id="firstYe1"  style="height: 250px;">
+	<div class="layui-carousel" id="firstYe" lay-filter="firstY1">
+		<div class="yuio" carousel-item style="width:100%;height: 100%;">
+			{volist name="adList" id="vo"}
+				<div class="lunbo">
+					<a style="width: 100%;height: 100%;display: inline-block;" href="{if condition='$vo.url eq ""'}javascript:(0){else/}{$vo.url}{/if}"><img style="width: 100%;height: 100%;" src="{$vo.pic}" onerror="this.src='/static/mobile/img/1_02.jpg'"></a>				
+				</div>
+			{/volist}
+	 	</div>
+	</div>
+</div>
+			<!--<div id="slider" class="mui-slider" style="height: 250px;">
+			<div class="mui-slider-group mui-slider-loop">
+				
+				{volist name="adList" id="vo" key="i"}
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a {if condition="$vo['url'] neq ''"} href="{$vo.url}" {else/} href="javascript:void(0)"{/if} class="adurl">
+						<img src="{$vo.pic}" style="height: 250px;"/>
+					</a>
+				</div>
+				{/volist}
+			</div>
+			
+		</div>-->
+			<div class="ding" id="pro">
+				<!--<img src="/static/mobile/img/3_13.jpg" />-->
+				<span class="title">
+					【产品原理】
+				</span>
+			</div>
+			<div class="ding">
+				<img src="/static/mobile/img/4_15.jpg" />
+			</div>
+			<div class="ding">
+				<img src="/static/mobile/img/5_17.jpg" />
+			</div>
+			<div class="ding">
+				<img src="/static/mobile/img/6_19.jpg" />
+			</div>
+			<div class="ding">
+				<span class="title">
+					什么是水解卵壳膜？
+				</span>
+				<div class="thisshop">
+					<img src="/static/mobile/img/luankemo_07.jpg" />
+					<div class="thisshop_content">
+						    新生蛋形成时，有一层0.07mm半透明 的卵壳膜，被称之为“生命保护膜”，是 弹力的支撑。卵壳膜主要成分为蛋白质纤维.由18中氨基酸构成，能激发纤维芽细胞合成更多的透明质酸和Ⅲ型胶原蛋白，能更好的位置皮肤组织的柔软性，肌肤由内而外水嫩饱满。
+					</div>
+				</div>
+				
+			</div>
+			<div class="ding">
+				<span class="title" style="margin-top: 12px;">
+					【卵壳膜多肽套餐成分】
+				</span>
+				<img src="/static/mobile/img/7_02_08.jpg" />
+			</div>
+			<div class="ding">
+				<img src="/static/mobile/img/8_03.jpg" />
+			</div>
+			<div class="ding">
+				<img src="/static/mobile/img/9_04.jpg" />
+			</div>
+			<div class="ding" id="demo">
+				<!--<img src="/static/mobile/img/14_05.jpg" />-->
+				<span class="title">
+					【用户效果展示】
+				</span>
+			</div>
+			<div class="user">
+				<div class="user_item">
+					<div class="user_item_left des1">
+						<img src="/static/mobile/img/user3_14.jpg" />
+					</div>
+					<!--href="{:url("mobile/index/userdetail")}"-->
+					<div class="user_item_right">
+						<!--<img src="/static/mobile/img/user6_14.jpg" />-->
+						<div style="line-height: 25px;">刘女士    32岁    全职太太  </div>
+						<p> 32岁这个年龄对于女性来说是一个比 较尴尬的年龄，失去了小姑娘般的肤 质和身材，也让自己失去了往日的风采。自从结婚以后就一直在家带孩子，，，，，，(详情)</p>
+					</div>
+				</div>
+				<div class="user_item des2" style="min-height:170px;">
+					<div class="user_item_left">
+						<img src="/static/mobile/img/user3_17.jpg" />
+					</div>
+					<div class="user_item_right ">
+						<!--<img src="/static/mobile/img/user5_18.jpg" />-->
+						<div style="line-height: 25px;">陈女士    42岁    保险销售   </div>
+						<p> 我是一名保险推销员，为了更好的生 活，各种加班，休息时间也要出去谈 单，但皱纹也慢慢的爬上了我的眼角和脸部，老公看着也心疼，偷偷给我买了一套“诗印卵壳膜原液套装”，气的我几天没，，，，，，(详情)</p>
+					</div>
+				</div>
+				<div class="user_item des3" >
+					<div class="user_item_left">
+						<img src="/static/mobile/img/user3_20.jpg" />
+					</div>
+					<div class="user_item_right">
+						<!--<img src="/static/mobile/img/user6_21.jpg" />-->
+						<div style="line-height: 25px;">李女士    28岁    公司高管   </div>
+						<p> 28岁的我，虽然有一份别人看似很体 面的工作，但背后的心酸也只有自己 能体会到，无数个日日夜夜，比人都在狂欢，陪家人，我却只能呆在空荡荡的公司，看，，，，，，(详情)</p>
+					</div>
+				</div>
+			</div>
+			<div class="ding" id="us">
+				<span class="title">
+					【关于我们】
+				</span>
+				<img src="/static/mobile/img/wwww_15.jpg" />
+				<div class="about_us">
+				<div class="about_us1">
+					    品质是企业的生命；品质是企业信誉的标志；品质是企业开拓 市场的武器；品质是提高企业经济效益的最佳途径。品质是全体诗印相互配合、共同努力的结果；我们将持续给广大的消费者遗留的品质。
+				</div>
+				</div>
+			</div>
+			<div class="ding">
+				<img src="/static/mobile/img/aboutus2_16.jpg" />
+				<div class="about_us">
+					
+				
+				<div class="about_us1">
+					        正如我们所说，将最好的品质呈现的，同时效果也是显而易见， 根据亚洲人肤质精心调 配成分，细腻，清爽，给皮肤焕然一新的感觉。
+				</div>
+				</div>
+			</div>
+			<div class="ding">
+				<img src="/static/mobile/img/aboutus3_18.jpg" />
+				<div class="about_us">
+					
+				
+				<div class="about_us1">
+					       我们一如既往对消费着 一种关爱和感激 ，真心的为消费着提 供更好的产品和服务，并承诺24小时服务于我们的上帝，希望你与诗印有着完美的邂逅。
+				</div>
+				</div>
+			</div>
+			{if condition="$sys.order eq 'open'"}
+			<div id="order">
+				<iframe src="{:url('mobile/index/creatOrder')}" width="100%" height="860" align="middle" scrolling="no"></iframe>
+
+			</div>
+			{/if}
+			<div class="ding">
+				<img src="/static/mobile/img/16_18.jpg" />
+			</div>
+		</div>
+		<!-- End of Page Contents -->
+		
+		<div class="introduce">
+			<!--<img src="/static/mobile/img/introduce.jpg" />-->
+			<div class="introduce_logo">
+				<div class="introduce_logo_left">
+					<img id="qrcode" src="{$sys.logo}" onerror="this.src='/static/mobile/img/qrqq.jpg'" />
+					<div class="introduce_logo_text">扫一扫  关注我们</div>
+				</div>
+				<div class="introduce_logo_right">
+					<div class="introduce_logo_name">
+						<p class="introduce_logo_name1">实力品牌保障      就是这么自信</p>
+						<p class="introduce_logo_name2">{$sys.title}</p>
+						<!--<p class="introduce_logo_name3">实力品牌保障   就是这么自信</p>-->
+					</div>
+					<div class="introduce_logo_name4">
+						<img src="/static/mobile/img/introduce_logo_img.png"/>
+					</div>
+				</div>
+			</div>
+			<p style="text-align:center;font-size:14px;line-height:1.7;padding-top:10px;background: #fff;margin: 0;">
+
+				郑重声明：本网站内容禁止转载，用于其他商业途径。<br> 保证正品|全国包邮
+				<br> 咨询QQ：{$sys.kfqq}
+				<br> 免费咨询电话：{$sys.kftel}（点击拨打）
+				<br> Copyright ©({$sys.copyright}) <br> 版权所有：{$sys.name} 备案号：{$sys.bah}<br>
+				<!--<a href="/" style="color:#000">触屏版</a>&nbsp&nbsp|&nbsp&nbsp
+				<a href="" style="color:#000">电脑版</a>-->
+
+			</p>
+		</div>
+
+	</div>
+	
+	<div class="qrcode_box" style="display: none;">
+		<div class="qrcode_fa">
+			<img src="{$sys.logo}" />
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/static/mobile/js/vendor/jquery-2.1.0.min.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+var u = navigator.userAgent;
+ var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+				$(document).ready(function() {
+					$("#main").click(function() {
+						document.querySelector(".left_menu").classList.remove("left_menu1");
+						
+					});
+					$(".menu").click(function(e) {
+						
+						var xiaoming=document.querySelector(".left_menu").classList.value;
+						//console.log(xiaoming.indexOf("left_menu1"))
+						if(xiaoming.indexOf("left_menu1")>0){
+							document.querySelector(".left_menu").classList.remove("left_menu1");
+						}else{
+							document.querySelector(".left_menu").classList.add("left_menu1");
+						}
+						e.stopPropagation();
+					});
+					$("#qrcode").click(function(){
+						
+						//$(".qrcode_box").style.display="block";
+						document.querySelector(".qrcode_box").style.display="block";
+					});
+					$(".qrcode_box").click(function(){
+						
+						//$(".qrcode_box").style.display="block";
+						document.querySelector(".qrcode_box").style.display="none";
+					});
+					$(".qrcode_fa").click(function(e){
+					e.stopPropagation();
+					});
+					
+                    
+                  
+                
+
+				})
+		 //点击去微信
+        function tiao(){
+            window.location.href = "http://youxiquan.iydsh.cn/index.php/renyijump?tk=98f9557955049351";
+        } 		
+			
+</script>
+
+<!-- End of Main Container -->
+{include file="common/foot"/}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0"/>
+		<title>{$sys.name}</title>
+		<link rel="stylesheet" href="/static/home/css/animate.min.css"/>
+		<link rel="stylesheet" href="/static/home/css/indexliu.css" />
+		<link rel="stylesheet" href="/static/home/css/products.css" />
+		<link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
+	</head>
+	<body style="overflow-y: auto; height: 100%; font-size: 20.85%;">
+	<!--导航-->
+	<div class="box write indexheader">
+		<div class="container header">
+			<div class="nav clearfix">
+				<div class="logo center">
+					<a href="{:url('home/index/index')}">
+					<img src="{$sys.logo}"/>						
+					</a>
+				</div>
+				<ul class="clearfix daohang" id="pages">
+					<li data-index="0" class="active"><a href="{:url('home/index/index')}">网站首页</a></li>
+					<li data-index="1" class="activelist"><a href="javascript:void(0)">产品列表</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="contentbox  contentbox1">
+		<div class="pleft">
+			<div class="pefBox">
+				<ul class="cases clearfix">
+					{volist name="list" id="vo"}
+						<li  data-id="{$vo.id}" data-name='{$vo.name}' class="peoductly">
+							<div class="case-img">
+								<div class="img-box"> 
+								<img src="{$vo.pic}" style="width:100%; height:auto;"></div>
+								<a class="cover" ></a>
+								<div class="ck"></div>
+							</div>
+							<div class="intro">
+								<h2><a >{$vo.name}</a></h2> 
+								<p>{$sys.name}为{$vo.name}</p>
+								<a class="cover"></a>
+							</div>
+						</li>
+					{/volist}
+				</ul>
+			</div>
+			<div class="pagelist">
+				{$page|raw}
+			</div>
+		</div>
+	</div>
+	<script src="/static/home/js/jquery-1.11.0.js"></script>
+	<script src="/static/home/js/swiper.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+	<script>
+$("body").on("click",".peoductly",function(){
+			var id = $(this).attr("data-id");
+			var name = $(this).attr("data-name");
+			console.log(id,name)
+			var width1="",height1="";
+              if(pcop()=="phone"){
+				  width1="100%";height1="100%";
+			  }else{
+				 width1="800px";height1="680px"; 
+				 if($(window).height() < 680){
+				 	height1 = "100%"
+				 }
+			  }
+			layui.use('layer',function(){
+		        var $ = layui.jquery, layer = layui.layer;
+				var url='{:url("home/index/detail")}?id='+id;
+		    	layer.open({
+					  type: 2,
+					  shade: 0.3,
+					  isOutAnim:true,
+					  title: [name, 'font-size:18px;'],
+					  id:"rencD",
+					  area: [width1, height1],
+					  content: [url,'no'], 
+					  success:function(layero,index){}
+					});
+		       })
+		})
+		
+		 function pcop(){
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            return "phone";
+        } else {
+        	return "pc";
+        }
+    }
+	$("#pages").on("click","li",function(){
+		$(this).addClass("activelist").siblings().removeClass("activelist")
+	})
+	</script>
+	</body>
+</html>

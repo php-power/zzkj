@@ -1,0 +1,778 @@
+.con1 a{
+	border-bottom:3px solid #0390FD;
+}
+
+@media (min-width:100px) and (max-width:768px){
+	.shouji{
+		display:block
+	}
+	.diannao{
+		display:none
+	}
+	.serviceSub{
+		display:none;
+	}
+	.serviceList{
+		width:100%;
+	}
+	.serviceList dl{
+		width:90%;
+		height:200px;
+		margin-left:5%;
+		position:relative;
+		margin-bottom:10px;
+		overflow:hidden;
+		border-radius:5px;
+		box-shadow: 2px 2px 3px #ccc;
+	}
+	.serviceList dl dt{
+		width:100%;
+		height:100%;
+	}
+	.serviceList dl dt img{
+		width:100%;
+		height:100%;
+	}
+	.serviceList dl dd{
+		position:absolute;
+		bottom:0;
+		left:0;
+		background:rgba(0,0,0,0.5);
+		color:#fff;
+		width:95%;
+		padding-left:5%;
+		padding-bottom:5px;
+	}
+	.serviceList dl dd p{
+		width:90%;
+		height:40px;
+		line-height:40px;
+	}
+	.serviceList dl dd span{
+		width:96%;
+		display:flex;
+		color:#ddd;
+		font-size:14px;
+		line-height:20px;
+	}
+	.bar{
+		width:94%;
+		padding:0 3%;
+		height:50px;
+		display:flex;
+		align-items: center;
+		justify-content: center;
+		font-size:14px;
+		color:#f1f1f1;
+		display: table-cell;
+	    vertical-align: middle;
+	    text-align: center;
+	}
+	.caseSub{
+		padding-left:10px;
+		height:30px;
+	}
+	/*成功案例*/
+	.caseList{
+		width:100%;
+	}
+	.caseList a{
+		width:94%;
+		margin-left:3%;
+		display:flex;
+		border-bottom:1px solid #d1d1d1;
+		padding-top:10px;
+	}
+	.zhezhao{
+		width:100%;
+		position:relative;
+		display:flex;
+		padding-bottom:10px;
+	}
+	.zhezhao dt,.zhezhao dt img{
+		width:120px;
+		height:120px;
+		display:block;
+		border-radius: 5px;
+	}
+	.zhezhao .code{
+		color:#333;
+		display:flex;
+		flex:1;
+		flex-direction: column;
+		padding-left:7px;
+	}
+	.zhezhao .code h3{
+		width:100%;
+		height:23px;
+		font-weight:100;
+	}
+	.zhezhao .code p{
+		width:100%;
+		height:97px;
+		line-height:20px;
+		overflow:hidden;
+		font-size:14px;
+		word-wrap: break-word;
+	}
+	.zhezhao dd{
+		display:none;
+	}
+	.zhezhao dd p{
+		font-size:14px;
+		display:none
+	}
+	.more{
+		height:40px;
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		color:#333;
+	}
+	/*解决方案*/
+	.Solve{
+		width:100%;
+		height:300px;
+		background:url(../images/jiejue.jpg) no-repeat;
+		background-size: cover;
+	}
+	/*新闻动态*/
+	.news{
+		width:100%;
+	}
+	.newsSub{
+		height:30px;
+		padding-left:3%;
+		color:#FE6906
+	}
+	.boxxian{
+		width:94%;
+		margin-left:3%;
+		display:block;
+	}
+	.boxxian a{
+		display:block;
+		width:100%;
+		line-height:27px;
+		
+	}
+	.boxxian dl,.boxxian dl{
+		width:100%;
+		border-bottom:1px solid #d1d1d1;
+	}
+	.boxxian dl dt{
+		width:100%;
+		
+	}
+	.boxxian dl dt img{
+		display:none;	
+	}
+	.boxxian dl dd p{
+		font-size:14px;
+		height:25px;
+		line-height:25px;
+		font-weight:700;
+	}
+	.boxxian dl dd span{
+		width:100%;
+		height:40px;
+		line-height:20px;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp:2;
+		overflow: hidden;
+		font-size:14px;
+		color:#666
+	}
+	.boxxian dl dd  i{
+		width:100%;
+		height:25px;
+		display:flex;
+		justify-content: flex-end;
+		font-size:12px;
+		align-items: center;
+		color:#666
+	}
+	
+}
+@media (min-width: 768px){
+	/*.shouji{
+		display:none
+	}*/
+	.diannao{
+		display:block
+	}
+	.container{
+		/*background:#f00;
+		height:400px;*/
+	}
+	/*banner图*/
+	.swiper-container {
+	    width: 100%;
+	    height: 100%;
+	}
+	.swiper-slide{
+		position:relative;
+	}
+
+	.main {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .main .annu{
+    	width:60px;
+		height:70px;
+		padding-top:20px;
+		padding-left:10px;
+		position:absolute;
+		top:280px;
+		font-size:30px;
+		background:rgba(255,255,255,.2);
+		text-align: center;
+		line-height:44px;
+		color:#fff;
+		display:none;
+		z-index:55;
+		cursor: pointer;
+    }
+    .main .annu img{
+    	width:50px;
+    	height:50px;
+    	z-index:0;
+    }
+	.left{
+		left:0px;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+	}
+	.right{
+		right:0px;
+		border-top-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+	}
+    .pic {
+    	width:100%;
+        height: 100%;
+       	overflow:hidden;
+    }
+	.pic ul{
+		width:100%;
+		height:100%;
+		position:relative;
+		top:0;
+		left:0;
+		}
+    .pic ul li{
+    	position:absolute;
+    	top:0;
+    	left:0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .img1 {
+        position: absolute;
+        left: -100%;
+        top: 130px;
+        font-size:55px;
+        color:#fff;
+        font-style:italic ;
+    }
+    .imgs2 {
+        position: absolute;
+        left: -100%;
+        top: 230px;
+        font-size:45px;
+        color:#fff;
+        font-style:italic ;
+    }
+    .img2 {
+    	
+    	text-align:center;
+        position: absolute;
+        top:-150px;
+        left:150px;
+        font-size:55px;
+        color:#fff;
+        font-style:italic;
+    }
+    .imgs3 {
+       	width:100%;
+    	text-align:center;
+        position: absolute;
+        bottom:-150px;
+        left: 0;
+        font-size:40px;
+        color:#fff;
+        font-style:italic;
+    }   
+    .img3 {
+       	position: absolute;
+        left: -100%;
+        top: 180px;
+        font-size:45px;
+        color:#fff;
+        font-style:italic;
+    }
+    .imgs4{
+       position: absolute;
+        right: -100%;
+        top: 260px;
+        font-size:40px;
+        color:#fff;
+        font-style:italic;
+    }      
+    .pic ul li:nth-child(1){
+    	z-index:9;
+    }
+    .pic ul li:nth-child(2){
+    	z-index:5;
+    }
+    .pic ul li:nth-child(3){
+    	z-index:1;
+    }
+    .pic ul li img{
+        width:100%;
+        height: 100%;
+        overflow: hidden;
+    }    
+    .dao {
+        width: 125px;
+        height: 30px;
+        position: absolute;
+        left:48%;
+        bottom: 5px;
+        z-index:9;
+        
+    }
+    /*按钮区域*/
+    .dao ul li {
+        width: 15px;
+        height: 15px;
+        border-radius: 10px;
+        float: left;
+        margin-left: 10px;
+        background:rgba(255,255,255,0.5);
+    }
+
+    .select {
+        background: #0390FD!important;
+    }
+
+	.swiper-slide img{
+		width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	}
+	.box .banner .swiper-pagination-bullet{
+		width:20px;
+		height:20px;
+	}
+	.service,.case,.solve,.news{
+		width:100%;
+		margin:0 auto;
+	}
+	.service .title,.solve .title,.news .title{
+		text-align: center;
+		width:100%;
+		height:78px;
+	}
+	.service .title img,.case .title img,.solve .title img,.news .title img{
+		margin:0 auto
+	}
+	.serviceSub,.caseSub,.solveSub,.newsSub{
+		width:100%;
+		line-height:50px;
+		text-align:center
+	}
+	.serviceList,.caseList,.solveList,.newsList{
+		width:100%;
+		clear:both;
+		padding-bottom: 20px;
+	}
+	.caseList{
+		opacity: 0;
+	}
+	/*服务范围*/
+	.serviceList dl{
+		width:22%;
+		min-width: 200px;
+		height:368px;
+		float:left;
+		margin-right:2%;
+		margin-left:1%;
+		margin-bottom:10px;
+		overflow:hidden;
+		opacity: 0;
+		border-radius: 5px;
+	}
+	.serviceList dl:hover{
+		box-shadow: 0 4px 20px #ccc;
+		margin-top:-1px;
+		margin-bottom: 11px;
+	}
+	.serviceList dl dt{
+		width:100%;
+		height:200px;
+		cursor: pointer;
+		overflow:hidden;
+	}
+	.serviceList dl dt img{
+		width:100%;
+		height:200px;
+		
+	}
+	.serviceList dl:hover img{
+		width:105%;
+		height:200px;
+	}
+	.serviceList dl dd{
+		width:92%;
+		height:170px;
+		padding-left:4%;
+	}
+	.serviceList dl dd p{
+		width:100%;
+		height:70px;
+		line-height:70px;
+		color:#333;
+	}
+	.serviceList dl dd span{
+		width:100%;
+		height:100px;
+		display:block;
+	}
+	.bar{
+		width:100%;
+		height:80px;
+		line-height:80px;
+		text-align:center;
+		color:#fff;
+        white-space:normal; 
+        word-break:break-all;
+	}
+	/*成功案例*/
+	.caseList dl{
+		width:30%;
+		min-width:200px;
+		height:290px;
+		float:left;
+		margin-right:2%;
+		margin-left:1%;
+		margin-bottom:20px;
+		position:relative;
+		overflow:hidden;
+		border-radius: 5px;
+		box-shadow:2px 2px 3px #ccc;
+	}
+	.caseList dl dt{
+		width:100%;
+		height:240px;
+	}
+	.caseList dl dt img{
+		width:100%;
+		height:240px;
+	}
+	.caseList dl dd{
+		background:#f9f9f9;
+	}
+	.caseList dl dd p{
+		width:100%;
+		height:50px;
+		line-height:50px;
+		z-index:99;
+		color:#333;
+		text-align:center;
+	}
+	.caseList dl:hover dd p{
+		background:#0390fd;
+		color:#fff;
+	}
+	.code{
+		position:absolute;
+		top:0;
+		left:0;
+		width:94%;
+		padding:10px 3% ;
+		height:220px;
+		background:rgba(0,0,0,0.5);
+		z-index:0;
+		display:none
+	}
+	.code img{
+		width:150px;
+		height:150px;
+		margin:45px auto;
+	}
+	.code h3{
+		color:#f1f1f1;
+		width:100%;
+		height:40px;
+		line-height:40px;
+	}
+	.code p{
+		width:100%;
+		height:200px;
+		line-height:25px;
+		color:#f2f2f2
+	}
+	/*解决方案*/
+	.Solve{
+		width:100%;
+		height:700px;
+		background:url(../images/jiejue.jpg)no-repeat 100% 100%;
+		background-size: cover;
+	}
+	/*新闻动态*/
+	.newsList .boxxian{
+		display:block;
+		position:relative;
+		width:48%;
+		min-width:470px;
+		height:140px;
+		float:left;
+		overflow: hidden;
+		margin-left:1%;
+		margin-right:1%;
+		opacity: 0;
+	}
+	.newsList{
+		width:100%;
+		padding-top:30px;
+	}
+	.newsList dl{
+		width:100%%;
+		height:100%;
+	}
+	.newsList dl dt{
+		float:left;
+		width:120px;
+		height:120px;
+		padding-top:10px;
+		padding-left:10px;
+	}
+	.newsList dl dt img{
+		border-radius:5px;
+		width:120px;
+		height:120px;
+	}
+	.newsList dl:hover h3{
+		color:#0390fd;
+	}
+	.newsList dl dd{
+		float:left;
+		width:65%;
+		height:128px;
+		margin-left:20px;
+		border-bottom:1px dashed #e1e1e1;
+	}
+	.newsList dl dd h3{
+		display:block;
+		width:100%;
+		height:40px;
+		line-height:40px;
+		font-weight:700;
+	}
+	.newsList dl dd span{
+		display: block;
+		width:100%;
+		height:60px;
+		line-height:28px;
+		overflow:hidden;
+	}
+	.newsList dl dd i{
+		display: block;
+		width:100%;
+		height:30px;
+		line-height:30px;
+		text-align:right;
+		color:#aaa;
+	}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+#container, .section {
+    height: 100%;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#container{
+	height: 100vh;
+	transition: 3s;
+}
+
+#container #section1{
+	background-image: url('../images/verbanner1.jpg');
+}
+#container #section2{
+	background-image: url('../images/verbanner2.jpg');
+}
+#container #section3{
+	background-image: url('../images/verbanner3.jpg');
+}
+#container #section4{
+	background-image: url('../images/verbanner4.jpg');
+}
+#container #section5{
+	background-image: url('../images/verbanner5.jpg');
+}
+#container #section6{
+	background-image: url('../images/verbanner6.jpg');
+}
+#container #section7{
+	background-image: url('../images/verbanner7.jpg');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slide-content h2 {
+    font-size: 3.3em;
+    position: relative;
+}
+.slide-content h3 {
+    font-size: 6.8em;
+    position: relative;
+    color: #00DFB8;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+.slide-content .intro {
+    font-size: 1.6em;
+    line-height: 2em;
+    position: relative;
+    margin: 10px 0;
+    color: #ccc;
+}
+.slide-content {
+    width: 40%;
+    color: #fff;
+    margin: 0 auto 0;
+    text-align: center;
+    font-size: 10px;
+    position: relative;
+    top: 25%;
+}
+
+
+.slide-content-3 {
+    text-align: right;
+    margin: 0;
+    width: 50%;
+}
+.background-box {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.5);
+    transition: all .7s ease .5s;
+}
+
+
+
+.slide-content-3 h2 b {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+.slide-content h2 b {
+    font-size: 1.9em;
+    color: #00DFB8;
+    margin: 0.25em 0 0.33em 0;
+    display: block;
+}
+.slide-content-3 .content-box {
+    right: 0;
+    opacity: 1;
+}
+.slide-content-3 .content-box {
+    padding-right: 80px;
+    width: auto;
+    right: 45%;
+    -ms-transition: all .5s ease 1.1s;
+    transition: all .5s ease 1.1s;
+    opacity: 0;
+}
+.slide-content .content-box {
+    position: relative;
+    z-index: 3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px)
+.slide-content-1 {
+    font-size: 9px;
+    width: 58%;
+}
+.swiper-pagination span{
+	cursor: pointer;
+}
+
+
+

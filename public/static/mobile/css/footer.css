@@ -1,0 +1,176 @@
+.footer{
+	width: 100%;
+	position: fixed;
+	height: 53px;
+	bottom: 0;
+	/*z-index: 99999;*/
+	margin: 0;
+	box-sizing: border-box;
+	padding-left: 0;
+	padding-right: 0;
+	display: -webkit-box;
+}
+.footer >.footer_item {
+    float: left;
+    width: 50%;
+   height: 100%;
+   position: relative;
+}
+.footer_item a {
+    display: block;
+    line-height: 52px;
+    height: 52px;
+    color: #fff;
+    text-align: center;
+}
+.footer_item img {
+    margin-right: 13px;
+    width: 25px;
+    height: 18px;
+    position: absolute;
+    left: 32px;
+    top: 17px;
+}
+.introduce{
+	width: 100%;
+}
+.introduce img{
+	width: 100%;
+}
+.introduce_logo{
+	width: 100%;
+	height: 100px;
+	background: #F93D60;
+}
+.introduce_logo_left{
+	    float: left;
+    width: 20%;
+    
+     margin: 6px 6px  6px 60px;
+    box-sizing: border-box;
+    
+}
+.introduce_logo_text{
+	width: 120%;
+	font-size: 12px;
+	transform: scale(0.6);
+	whitespace:nowrap; 
+	word-break: keep-all;
+	color: #ffffff;
+	margin-left: -8px;
+	min-width: 53px;
+}
+@media only screen  and (max-width: 370px) {
+	.introduce_logo_text {
+    width: 126% !important;
+    font-size: 8px;
+    transform: scale(0.6);
+    whitespace: nowrap;
+    word-break: keep-all;
+    color: #ffffff;
+    margin-left: -8px;
+    /* min-width: 53px; */
+}
+.introduce_logo_name {
+    background: none;
+    width: 86% !important;
+    height: 50%;
+    overflow: hidden;
+    margin-top: 3px;
+}
+.introduce_logo_name4 {
+    width: 82% !important;
+    height: 42%;
+    margin-top: 2%;
+    overflow: hidden;
+}
+}
+@media only screen and (max-width: 330px)  {
+	.introduce_logo_text {
+    width: 140% !important;
+    font-size: 8px;
+    transform: scale(0.6);
+    whitespace: nowrap;
+    word-break: keep-all;
+    color: #ffffff;
+    margin-left: -8px;
+    min-width: 60px;
+}
+.introduce_logo_left {
+    float: left;
+    width: 20%;
+        margin: 6px 15px 6px 40px !important;
+    box-sizing: border-box;
+}
+.introduce_logo_name {
+    background: none;
+    width: 95% !important;
+    height: 50%;
+    overflow: hidden;
+    margin-top: 3px;
+}
+.introduce_logo_name4 {
+    width: 92% !important;
+    height: 42%;
+    margin-top: 2%;
+    overflow: hidden;
+}
+}
+.introduce_logo_right{
+	float: left;
+	width: 59%;
+	height: 100%;
+}
+.introduce_logo_left img{
+	width: 74px;
+	height: 74px;
+}
+.introduce_logo_name p{
+	font-size: 12px;
+	margin-bottom: 0;
+	text-align: center;
+	color: #ffffff;
+}
+.introduce_logo_name{
+	background: none;
+	width: 80%;
+	height: 50%;
+	overflow: hidden;
+	margin-top: 3px;
+}
+.introduce_logo_name1{
+	line-height: 26px;
+	
+	text-align: left;
+	font-size: 12px;
+	margin-bottom: 0;
+	text-align: center;
+	color: #ffffff;
+	letter-spacing: 1px;
+}
+.introduce_logo_name2{
+	display: block;
+	background: #ffffff;
+	border-radius: 12px;
+	color: #E5294C !important;
+	transform: scale(0.6666);
+	line-height: 22px !important;
+	box-sizing: border-box;
+	padding: 0 4px;
+	width: 110%;
+	margin-left: -10px;
+}
+.introduce_logo_name3{
+	transform: scale(0.5);
+	line-height: 16px !important;
+}
+.introduce_logo_name4{
+	width: 78%;
+	height: 42%;margin-top: 2%;
+	overflow: hidden;
+}
+.introduce_logo_name4 img{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}

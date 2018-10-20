@@ -1,0 +1,280 @@
+{include file="common/head"/}
+<style type="text/css">
+	#replyform label,#editform label,#addform label{
+		width: 60px;
+	}
+	#replyform .layui-input-block,#editform .layui-input-block,#addform .layui-input-block{
+		margin-left: 90px;
+	}
+	#replyform .layui-form,#editform .layui-form,#addform .layui-form{
+		width: 85%;
+		padding-top: 30px;
+	}
+</style>
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>{:lang('message')}{:lang('list')}</legend>
+    </fieldset>
+    <div class="demoTable">
+        <div class="layui-inline">
+            <input class="layui-input" name="key" id="key" placeholder="{:lang('pleaseEnter')}关键字">
+        </div>
+        <button class="layui-btn" id="search" data-type="reload">{:lang('search')}</button>
+        <a href="{:url('index')}" class="layui-btn">显示全部</a>
+        <button type="button" class="layui-btn layui-btn-danger" id="delAll">批量删除</button>
+    </div>
+    <table class="layui-table" id="list" lay-filter="list"></table>
+</div>
+
+
+
+<div id="replyform" style="display: none;">
+	<form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">留言:</label>
+            <div class="layui-input-block massangeb" style="line-height: 36px;">
+                
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">回复:</label>
+            <div class="layui-input-block">
+                <textarea ng-model="field.content" placeholder="请输回复内容内容" name="content" class="layui-textarea"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div id="editform" style="display: none;">
+	<form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">留言:</label>
+            <div class="layui-input-block massangeb1" style="line-height: 36px;">
+               
+                	<textarea ng-model="field.content" placeholder="请输回复内容内容" name="content" class="layui-textarea"></textarea>
+            	
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">回复:</label>
+            <div class="layui-input-block massangeb2">
+                <textarea ng-model="field.content" placeholder="请输回复内容内容" name="content" class="layui-textarea"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="addform" style="display: none;">
+	<form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">留言:</label>
+            <div class="layui-input-block massangeb1" style="line-height: 36px;">
+               
+                	<textarea ng-model="field.content" placeholder="请输回复内容内容" name="content" class="layui-textarea"></textarea>
+            	
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">回复:</label>
+            <div class="layui-input-block massangeb2">
+                <textarea ng-model="field.content" placeholder="请输回复内容内容" name="content" class="layui-textarea"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+{include file="common/foot"/}
+<script type="text/html" id="action">
+	<a class="layui-btn layui-btn-xs" lay-event="reply">回复</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="open">
+    <input type="checkbox" name="open" value="{{d.id}}" lay-skin="switch" lay-text="开启|待回复" lay-filter="open" {{ d.open == 1 ? 'checked' : '' }}>
+</script>
+<script>
+    layui.use('table', function() {
+        var table = layui.table, $ = layui.jquery;
+        var tableIn = table.render({
+            id: 'message',
+            elem: '#list',
+            url: '{:url("index")}',
+            method: 'post',
+            page: true,
+            cols: [[
+                {checkbox: true, fixed: true},
+                {field: 'id', title: '{:lang("id")}', width: 80,fixed: true},
+                {field: 'name', title: '{:lang("name")}', width: 160},
+                {field: 'tel', title: '{:lang("tel")}', width: 160},
+                {field: 'content', title: '{:lang("content")}', width: 300},
+                {field: 'ip', title: '{:lang("ip")}', width: 180},
+                {field: 'addtime', title: '添加时间', width: 180},
+            ]],
+            limit: 10 //每页默认显示的数量
+        });
+        //搜索
+        $('#search').on('click', function () {
+            var key = $('#key').val();
+            if ($.trim(key) === '') {
+                layer.msg('{:lang("pleaseEnter")}关键字！', {icon: 0});
+                return;
+            }
+            tableIn.reload({ page: {page: 1}, where: {key: key}});
+        });
+        table.on('tool(list)', function(obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                layer.confirm('您确定要删除该留言吗？', function(index){
+                    var loading = layer.load(1, {shade: [0.1, '#fff']});
+                    $.post("{:url('del')}",{id:data.id},function(res){
+                        layer.close(loading);
+                        if(res.code===1){
+                            layer.msg(res.msg,{time:1000,icon:1});
+                            tableIn.reload();
+                        }else{
+                            layer.msg('操作失败！',{time:1000,icon:2});
+                        }
+                    });
+                    layer.close(index);
+                });
+            }else if(obj.event === 'reply'){
+            	console.log(obj.data)
+            	layer.open({type: 1,shade: 0.1,id:"formId",btn:'保存',anim:0,area: ['400px', "360px"],title:"回复留言",content: $('#replyform'),
+					success:function(){
+						$("#replyform").find(".massangeb").html(obj.data.content)
+					},
+					yes:function(index, layero){
+						if($("#replyform").find("textarea").val() != ''){
+							$.post('{:url("addmsg")}',{id:obj.data.id,contented:$("#replyform").find("textarea").val()},function(res){
+								if(res.code == 1){
+									layer.msg(res.msg,{icon:1,time:1800})
+									layer.close(index)
+									tableIn.reload();
+								}else{
+									layer.msg(res.msg,{icon:2,time:1800})
+								}
+							})
+						}else{
+							layer.msg("回复内容不能为空！",{icon:2,time:1800})
+						}
+					},
+					end:function(){
+						$("#replyform").find(".massangeb").html('')
+						$("#replyform").find("textarea").val('')
+						$("#replyform").hide();
+					}
+				})
+            }else if(obj.event === 'edit'){
+            	
+            	layer.open({type: 1,shade: 0.1,id:"formId",btn:'保存',anim:0,area: ['400px', "400px"],title:"编辑留言",content: $('#editform'),
+					success:function(){
+						$("#editform").find(".massangeb1 textarea").val(obj.data.content)
+						$("#editform").find(".massangeb2 textarea").val(obj.data.contented)
+					},
+					yes:function(index, layero){
+						if($("#editform").find("textarea").val() != ''){
+							$.post('{:url("addmsg")}',{id:obj.data.id,content:$("#editform").find(".massangeb1 textarea").val(),contented:$("#editform").find(".massangeb2 textarea").val()},function(res){
+								if(res.code == 1){
+									layer.msg(res.msg,{icon:1,time:1800})
+									layer.close(index)
+									tableIn.reload();
+								}else{
+									layer.msg(res.msg,{icon:2,time:1800})
+								}
+							})
+						}else{
+							layer.msg("回复内容不能为空！",{icon:2,time:1800})
+						}
+					},
+					end:function(){
+						$("#editform").find("textarea").val('')
+						$("#editform").hide();
+					}
+				})
+            }else if(obj.event === 'open'){
+            	if(obj.data.open == 1){
+            		layer.confirm('您确定要将此条数据禁用？', function(index){
+                    var loading = layer.load(1, {shade: [0.1, '#fff']});
+                    $.post("{:url('editState')}",{id:data.id,open:0},function(res){
+                        layer.close(loading);
+                        if(res.code===1){
+                            layer.msg(res.msg,{time:1000,icon:1});
+                            tableIn.reload();
+                        }else{
+                        	tableIn.reload();
+                            layer.msg(res.msg,{time:1000,icon:2});
+                        }
+                    });
+                    layer.close(index);
+                });
+            	}else if(obj.data.open == 0){
+            		if(obj.data.contented == ''){
+            			layer.msg('请填写回复内容后启用.',{icon:2,time:1800})
+            			tableIn.reload();
+            		}else{
+            			layer.confirm('您确定要将此条数据启用？', function(index){
+            				var loading = layer.load(1, {shade: [0.1, '#fff']});
+            			$.post("{:url('editState')}",{id:data.id,open:1},function(res){
+	                        layer.close(loading);
+	                        if(res.code===1){
+	                            layer.msg(res.msg,{time:1000,icon:1});
+	                            tableIn.reload();
+	                        }else{
+	                        	tableIn.reload();
+	                            layer.msg(res.msg,{time:1000,icon:2});
+	                        }
+	                    });
+	                  })
+            		}
+            	}
+            }
+        });
+        
+        $("#addmess").click(function(){
+        	
+        	layer.open({type: 1,shade: 0.1,id:"formId",btn:'保存',anim:0,area: ['400px', "400px"],title:"添加留言",content: $('#addform'),
+					success:function(){},
+					yes:function(index, layero){
+						var liu = $("#addform").find(".massangeb1 textarea").val()
+						var hui = $("#addform").find(".massangeb2 textarea").val()
+						if(liu != ''&& hui != ''){
+							$.post('{:url("add")}',{content:$("#addform").find(".massangeb1 textarea").val(),contented:$("#addform").find(".massangeb2 textarea").val()},function(res){
+								if(res.code == 1){
+									layer.msg(res.msg,{icon:1,time:1800})
+									layer.close(index)
+									tableIn.reload();
+								}else{
+									layer.msg(res.msg,{icon:2,time:1800})
+								}
+							})
+						}else{
+							layer.msg("留言，回复内容均不能为空！",{icon:2,time:1800})
+						}
+					},
+					end:function(){
+						$("#addform").find("textarea").val('')
+						$("#addform").hide();
+					}
+				})
+        })
+        $('#delAll').click(function(){
+            layer.confirm('确认要删除选中的留言吗？', {icon: 3}, function(index) {
+                layer.close(index);
+                var checkStatus = table.checkStatus('message'); //test即为参数id设定的值
+                var ids = [];
+                $(checkStatus.data).each(function (i, o) {
+                    ids.push(o.id);
+                });
+                var loading = layer.load(1, {shade: [0.1, '#fff']});
+                $.post("{:url('delall')}", {ids: ids}, function (data) {
+                    layer.close(loading);
+                    if (data.code === 1) {
+                        layer.msg(data.msg, {time: 1000, icon: 1});
+                        tableIn.reload();
+                    } else {
+                        layer.msg(data.msg, {time: 1000, icon: 2});
+                    }
+                });
+            });
+        })
+    });
+</script>

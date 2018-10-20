@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<title>订单系统</title>
+		<script type="text/javascript" src="/static/mobile/js/bddq.js" charset="UTF-8"></script>
+		<link href="/static/mobile/css/creatOrder.css" rel="stylesheet" type="text/css">
+
+		<style type="text/css">
+			#clorder {
+				width: 100%;
+				max-width: 960px;
+				background: #FFF;
+			}
+			
+			.clwarp {
+				border: 5px solid #FF3366;
+			}
+			
+			.cltitlea,
+			.cltitleb {
+				border-bottom: 1px solid #FF3366;
+			}
+			
+			.clrxian {
+				border-right: 1px solid #FF3366;
+			}
+			
+			.clsubbox input {
+				background: #FF3366;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="clorder">
+
+			<div class="clwarp">
+
+				<div class="clorderl">
+
+					<div class="clforml" id="clforml">
+
+						<div class="clrxian">
+
+							<form id="clform" name="clform" >
+
+								<!--<input type="hidden" value="" name="referer" id="referer">
+								<input type="hidden" value="" name="url" id="url">
+								<input type="hidden" value="" name="purl" id="purl">
+
+								<input type="hidden" name="bdnum" value="1">
+
+								<input type="hidden" name="bdprice" value="1757">-->
+
+								<div class="cltitlea"></div>
+
+								<div class="clbdbox">
+
+									<label class="clbdxx"><em>*</em>选择产品</label>
+
+									<div class="cldxbox red">
+
+										
+										{volist name="productLists" id="vo" key="i"}
+										<p onclick="pricea({$vo.id})"> <input type="radio" {if condition="$vo['is_tj'] eq 1"} checked {/if} name="product_name" id="a{$vo.id}" value="{$vo.name}" alt="1757" ><label for="bdproduct2" >{$vo.name}{if condition="$vo['is_tj'] eq 1"} <img src="/static/mobile/img/tj.gif">{/if}</label><br></p>
+										{/volist}								
+									</div>
+
+								</div>
+
+								<div class="clbdbox">
+
+									<label class="clbdxx"><em>*</em>姓名</label>
+
+									<div class="cltextbox">
+
+										<input type="text" name="name">
+
+									</div>
+
+								</div>
+
+								<div class="clbdbox">
+
+									<label class="clbdxx"><em>*</em>手机号码</label>
+
+									<div class="cltextbox">
+
+										<input type="text" name="tel">
+
+									</div>
+
+								</div>
+
+								<div class="clbdbox">
+
+									<label class="clbdxx"><em>*</em>所在地区</label>
+
+									<div class="clxlbox">
+
+										<select name="bdprovince" class="cldqxl"></select>
+										<select name="bdcity" class="cldqxl"></select>
+										<select name="bdarea" class="cldqxl"></select>
+
+									</div>
+
+								</div>
+
+								<div class="clbdbox">
+									<label class="clbdxx"><em>*</em>详细地址</label>
+									<div class="cltextbox">
+
+										<input type="text" name="address">
+
+									</div>
+
+								</div>
+
+								<div class="clbdbox">
+
+									<label class="clbdxx"><em>*</em>付款方式</label>
+
+									<div class="cldxbox">
+										<input type="radio" checked="checked" name="pay_type" id="b1" value="货到付款" onClick="opay();return changeItem(0);" /><label for="b1"><img src="/static/mobile/img/fk.gif" /></label>
+										<input type="radio" name="pay_type" id="b2" value="支付宝" onClick="opay2();return changeItem(1);" /><label for="b2"><img src="/static/mobile/img/zfb.gif" style="max-width: 97px; min-width: 88px; width: 23%;" /></label><br>
+										<input type="radio" name="pay_type" id="b3" value="微信" onClick="opay2();return changeItem(2);" /><label for="b3"><img src="/static/mobile/img/wx.gif" /></label>
+										<input type="radio" name="pay_type" id="b4" value="银行汇款" onClick="opay();return changeItem(3);" /><label for="b4"><img src="/static/mobile/img/yh.gif" /></label>
+
+									</div>
+
+								</div>
+								<div class="clbdbox">
+									<div id="paydiv0" class="clpayps">
+
+										<p><span class="green">温馨提示：</span>选择货到付款在家等快递公司送货上门，先验货后付款！</p>
+
+									</div>
+
+									<div id="paydiv1" class="clpayps" style="display:none;">
+
+										<p><span class="green">温馨提示：</span>全球领先的第三方支付平台，在线支付，安全可靠，优惠5%！</p>
+
+									</div>
+
+									<div id="paydiv2" class="clpayps" style="display:none;">
+
+										<p><span class="green">温馨提示：</span>全球领先的第三方支付平台，在线支付，安全可靠，优惠5%！</p>
+
+									</div>
+
+									<div id="paydiv3" class="clpayps" style="display:none;">
+
+										<p><span class="green">温馨提示：</span>请拨打我们网站上的免费客服电话，索要银行汇款帐号。</p>
+
+									</div>
+								</div>
+
+								<div class="clbdbox">
+
+									<label class="clbdxx">留言</label>
+
+									<div class="cltext2box">
+
+										<textarea name="content" onfocus="if(value=='请尽快安排发货，送货之前手机联系，谢谢！'){value=''}" onblur="if (value ==''){value='请尽快安排发货，送货之前手机联系，谢谢！'}">请尽快安排发货，送货之前手机联系，谢谢！</textarea>
+
+									</div>
+
+								</div>
+								<!--<div class="clbdbox">
+									<label class="clbdxx"><em>*</em>验证码</label>
+									<div class="cltext3box">
+										<input type="text" name="wfcode" class="clcode" /><img id="wfcode" src="../public/wfcode.php?wfaction=codeimg&imgw=70&imgh=29" alt="换一个！" title="换一个！" onClick="this.src=this.src+'?wfaction=codeimg&imgw=70&imgh=29&temp='+Math.random();" /><img src="img/yz.gif" />
+										<a href='javascript:;' onclick="refreshCode()">换一个！</a>
+									</div>
+								</div>-->
+								<div class="clsubbox">
+
+									
+								</div>
+
+							</form>
+							<div class="clbdbox" style="text-align:center;">
+                                    <span class="submitBtn" >立即提交订单</span>
+                             </div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="clorderr">
+
+					<div class="clformr">
+
+						<div class="cltitleb"></div>
+
+						<div id="clfahuo" style="overflow:hidden;">
+
+							<div id="clfahuo1" style="overflow:hidden;">
+								<script type="text/javascript" src="/static/mobile/js/clfh.js"></script>
+							</div>
+
+							<div id="clfahuo2"></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div style="clear:both;"></div>
+
+			</div>
+
+		</div>
+
+		
+		
+
+	</body>
+	
+	<script type="text/javascript" src="/static/mobile/js/clbd.js"></script>
+   
+    <script type="text/javascript" src="/static/mobile/js/vendor/jquery-2.1.0.min.js" charset="UTF-8"></script>
+     <script type="text/javascript" src="/static/mobile/js/clgd.js"></script>
+     
+	<script>
+	
+	$(document).ready(function(){
+		
+$(".submitBtn").click(function(){
+	console.log(11)
+var ifname=/^[\u4e00-\u9fa5]{2,6}$/;
+
+	var ifmob=/^1[3,4,5,7,8]\d{9}$/;
+
+    var ifqq=/^\d{5,15}$/;
+
+	var ifemail=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		if(document.clform.product_name.value==""){
+			alert('请选择中意的产品！');
+			return false;	
+}
+if(document.clform.name.value==""){
+
+			alert('请填写姓名！');
+
+			document.clform.name.focus();
+
+			return false;
+
+		}
+		if(document.clform.tel.value==""){
+
+			alert('请填写手机号码！');
+
+			document.clform.tel.focus();
+
+			return false;
+
+		}
+
+		if(!ifmob.test(document.clform.tel.value)){
+
+			alert('手机号码格式不正确，请重新填写！');
+
+			document.clform.tel.focus();
+
+			return false;
+
+		}
+		if(document.clform.bdprovince.value==""){
+
+			alert('请选择所在地区！');
+
+			document.clform.bdprovince.focus();
+
+			return false;
+
+		}
+		if(document.clform.address.value==""){
+
+			alert('请填写详细地址！');
+
+			document.clform.address.focus();
+
+			return false;
+
+		}
+		
+		var bdprovince=document.clform.bdprovince.value;
+		var bdcity=document.clform.bdcity.value;
+		var bdarea=document.clform.bdarea.value;
+		var address=document.clform.address.value;
+		var product_name=document.clform.product_name.value;
+		var name=document.clform.name.value;
+		var tel=document.clform.tel.value;
+		var pay_type=document.clform.pay_type.value;
+		var content=document.clform.content.value;
+		//console.log(data);
+		var  addresss=bdprovince+bdcity+bdarea+address;
+		//$("#clform").find("input[name=address]").val(addresss);
+	
+//var data = $("#clform").serialize();
+/*
+  {
+			"product_name":product_name,
+			"name":name,
+			"tel":tel,
+			"pay_type":pay_type,
+			"content":content,
+			"address":addresss
+			}
+ * */
+	//console.log(data);
+			$.ajax({
+			type: "POST",                  //提交方式
+            dataType: "json",              //预期服务器返回的数据类型
+            url: "{:url('mobile/index/senorder')}" ,          //目标url
+            data: {
+			"product_name":product_name,
+			"name":name,
+			"tel":tel,
+			"pay_type":pay_type,
+			"content":content,
+			"address":addresss
+			}, //提交的数据
+            success: function (result) {
+                console.log(result);       //打印服务端返回的数据(调试用)
+                if (result.status == 1) {
+                    alert("预约成功");
+                }
+                ;
+            },
+            error : function() {
+                alert("异常！");
+            }
+	});
+});
+});
+	</script>
+       
+</html>
